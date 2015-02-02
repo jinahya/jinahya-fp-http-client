@@ -34,10 +34,11 @@ import java.util.Properties;
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
  */
 @SuppressWarnings("unchecked")
-public final class AliasedBaseUris {
+public final class BaseUris {
 
 
-    private static final String NAME = "aliased-base-uris.properties";
+    private static final String NAME
+        = "/" + BaseUris.class.getName() + ".properties";
 
 
     private static final Map<String, URI> MAP;
@@ -45,12 +46,9 @@ public final class AliasedBaseUris {
 
     static {
         final Map<String, URI> map = new HashMap<String, URI>();
-        final URL resource = AliasedBaseUris.class.getResource(NAME);
+        final URL resource = BaseUris.class.getResource(NAME);
         if (resource == null) {
-            System.err.println(
-                "resource not found: "
-                + AliasedBaseUris.class.getPackage().getName().replace(".", "/")
-                + "/" + NAME);
+            System.err.println("resource not found: " + NAME);
         }
         if (resource != null) {
             final Properties p = new Properties();
@@ -150,7 +148,7 @@ public final class AliasedBaseUris {
     }
 
 
-    private AliasedBaseUris() {
+    private BaseUris() {
 
         super();
     }

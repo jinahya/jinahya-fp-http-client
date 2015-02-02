@@ -28,7 +28,7 @@ import org.testng.annotations.Test;
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
  */
-public class AliasedUriRepositoryTest {
+public class BaseUrisTest {
 
 
     @Test
@@ -36,7 +36,7 @@ public class AliasedUriRepositoryTest {
 
         final Logger logger = getLogger(lookup().lookupClass());
 
-        logger.debug("local: {}", AliasedBaseUris.get("local"));
+        logger.debug("local: {}", BaseUris.get("local"));
     }
 
 

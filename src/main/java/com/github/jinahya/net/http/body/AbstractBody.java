@@ -21,7 +21,7 @@ package com.github.jinahya.net.http.body;
 /**
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
- * @param <T>
+ * @param <T> body type parameter
  */
 public abstract class AbstractBody<T> implements ReadableBody<T> {
 

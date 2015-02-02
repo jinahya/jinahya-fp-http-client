@@ -138,7 +138,7 @@ public class HttpClientTest {
         throws URISyntaxException, MalformedURLException, IOException {
 
         final HttpResponse response
-            = new HttpClient(new UriBuilder(AliasedBaseUris.get("daum"))
+            = new HttpClient(new UriBuilder(BaseUris.get("daum"))
                 .path("index.html")
                 .build()
                 .toURL())
