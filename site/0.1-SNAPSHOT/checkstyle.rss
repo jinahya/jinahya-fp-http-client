@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>jinahya-fp-http-client - Checkstyle report</title>
+    <link>http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT</link>
+    <description>jinahya-fp-http-client - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2014 - 2015</copyright>
+    <item>
+      <title>File: 19,
+             Errors: 123,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.UriBuilder.java">com/github/jinahya/net/http/UriBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.JsonObjectBody.java">com/github/jinahya/net/http/body/JsonObjectBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.JsonSimpleObjectBody.java">com/github/jinahya/net/http/body/JsonSimpleObjectBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.BidirectionalBody.java">com/github/jinahya/net/http/body/BidirectionalBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.BytesBody.java">com/github/jinahya/net/http/body/BytesBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.ApplicationOctetStreamBody.java">com/github/jinahya/net/http/body/ApplicationOctetStreamBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.KXml2DocumentBody.java">com/github/jinahya/net/http/body/KXml2DocumentBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.HttpResponse.java">com/github/jinahya/net/http/HttpResponse.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.TextPlainBody.java">com/github/jinahya/net/http/body/TextPlainBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.BaseUris.java">com/github/jinahya/net/http/BaseUris.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.HttpRequest.java">com/github/jinahya/net/http/HttpRequest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  19
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.Body.java">com/github/jinahya/net/http/body/Body.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.HeaderUtilities.java">com/github/jinahya/net/http/HeaderUtilities.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.QueryStringBuilder.java">com/github/jinahya/net/http/QueryStringBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.AbstractBody.java">com/github/jinahya/net/http/body/AbstractBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.WritableBody.java">com/github/jinahya/net/http/body/WritableBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.ContentType.java">com/github/jinahya/net/http/ContentType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.HttpClient.java">com/github/jinahya/net/http/HttpClient.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.ReadableBody.java">com/github/jinahya/net/http/body/ReadableBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
