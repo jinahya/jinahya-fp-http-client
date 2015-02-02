@@ -29,10 +29,10 @@ import java.util.Map;
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
  */
-public class QueryStringBuilder {
+public class QueryBuilder {
 
 
-    public QueryStringBuilder() {
+    public QueryBuilder() {
 
         super();
 
@@ -40,7 +40,7 @@ public class QueryStringBuilder {
     }
 
 
-    public QueryStringBuilder put(final String name, final Object... values) {
+    public QueryBuilder put(final String name, final Object... values) {
 
         if (name == null) {
             throw new NullPointerException("null name");
@@ -63,7 +63,7 @@ public class QueryStringBuilder {
     }
 
 
-    public QueryStringBuilder remove(final String name) {
+    public QueryBuilder remove(final String name) {
 
         if (name == null) {
             throw new NullPointerException("null name");

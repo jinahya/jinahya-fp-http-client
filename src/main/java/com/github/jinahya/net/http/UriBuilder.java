@@ -38,9 +38,13 @@ public class UriBuilder {
             throw new NullPointerException("null baseUri");
         }
 
+        if (!baseUri.isAbsolute()) {
+            throw new IllegalArgumentException("relative baseUri");
+        }
+
         this.baseUri = baseUri;
         pathBuilder = new StringBuilder();
-        queryBuilder = new QueryStringBuilder();
+        queryBuilder = new QueryBuilder();
     }
 
 
@@ -121,7 +125,7 @@ public class UriBuilder {
     private final StringBuilder pathBuilder;
 
 
-    private final QueryStringBuilder queryBuilder;
+    private final QueryBuilder queryBuilder;
 
 
 }

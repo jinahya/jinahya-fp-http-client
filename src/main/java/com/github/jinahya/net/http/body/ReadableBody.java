@@ -25,7 +25,7 @@ import java.net.HttpURLConnection;
 /**
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
- * @param <T>
+ * @param <T> value type parameter
  */
 public interface ReadableBody<T> extends Body<T> {
 
