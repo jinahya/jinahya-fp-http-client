@@ -40,6 +40,14 @@ public abstract class AbstractBody<T> implements ReadableBody<T> {
     }
 
 
+    public AbstractBody<T> value(final T value) {
+
+        setValue(value);
+
+        return this;
+    }
+
+
     private T value;
 
 

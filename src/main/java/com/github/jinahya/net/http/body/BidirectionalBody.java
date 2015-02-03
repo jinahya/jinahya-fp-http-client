@@ -21,7 +21,7 @@ package com.github.jinahya.net.http.body;
 /**
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
- * @param <T>
+ * @param <T> value type parameter
  */
 public abstract class BidirectionalBody<T> extends AbstractBody<T>
     implements ReadableBody<T>, WritableBody<T> {

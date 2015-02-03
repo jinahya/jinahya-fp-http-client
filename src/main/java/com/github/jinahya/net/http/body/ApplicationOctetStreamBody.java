@@ -37,5 +37,12 @@ public class ApplicationOctetStreamBody extends BytesBody {
     }
 
 
+    @Override
+    public ApplicationOctetStreamBody value(final byte[] bytes) {
+
+        return (ApplicationOctetStreamBody) super.value(bytes);
+    }
+
+
 }
 

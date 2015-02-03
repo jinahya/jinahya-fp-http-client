@@ -56,10 +56,12 @@ public class JsonObjectBody extends BidirectionalBody<JSONObject> {
     @Override
     public void read(final HttpURLConnection connection) throws IOException {
 
-        String contentTypeCharset
-            = HeaderUtilities.getResponseContentTypeCharset(connection);
         if (contentTypeCharset == null) {
-            contentTypeCharset = "utf-8"; // rfc7159
+            contentTypeCharset
+                = HeaderUtilities.getResponseContentTypeCharset(connection);
+            if (contentTypeCharset == null) {
+                contentTypeCharset = "utf-8"; // rfc7159
+            }
         }
 
         final InputStream input = connection.getInputStream();
@@ -75,13 +77,13 @@ public class JsonObjectBody extends BidirectionalBody<JSONObject> {
     @Override
     public void write(final HttpURLConnection connection) throws IOException {
 
-        String contentTypeCharset
-            = HeaderUtilities.getRequestContentTypeCharset(connection);
         if (contentTypeCharset == null) {
-            contentTypeCharset = "utf-8"; // rf7159
+            contentTypeCharset
+                = HeaderUtilities.getRequestContentTypeCharset(connection);
+            if (contentTypeCharset == null) {
+                contentTypeCharset = "utf-8"; // rf7159
+            }
         }
-        System.out.println("request$content-type;charset: "
-                           + contentTypeCharset);
 
         final OutputStream output = connection.getOutputStream();
         try {
@@ -96,6 +98,43 @@ public class JsonObjectBody extends BidirectionalBody<JSONObject> {
             output.close();
         }
     }
+
+
+    @Override
+    public JsonObjectBody value(final JSONObject value) {
+
+        return (JsonObjectBody) super.value(value);
+    }
+
+
+    public String getContentTypeCharset() {
+
+        return contentTypeCharset;
+    }
+
+
+    public void setContentTypeCharset(final String contentTypeCharset) {
+
+        this.contentTypeCharset = contentTypeCharset;
+    }
+
+
+    /**
+     * Replaces {@code contentTypeCharset} with given and returns self.
+     *
+     * @param contentTypeCharset contentTypeCharset
+     *
+     * @return self.
+     */
+    public JsonObjectBody contentTypeCharset(final String contentTypeCharset) {
+
+        setContentTypeCharset(contentTypeCharset);
+
+        return this;
+    }
+
+
+    private String contentTypeCharset;
 
 
 }

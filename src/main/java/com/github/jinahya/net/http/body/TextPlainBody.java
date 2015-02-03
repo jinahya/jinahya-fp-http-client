@@ -54,13 +54,13 @@ public class TextPlainBody extends BidirectionalBody<String> {
             throw new NullPointerException("null connection");
         }
 
-        String contentTypeCharset
-            = HeaderUtilities.getResponseContentTypeCharset(connection);
         if (contentTypeCharset == null) {
-            contentTypeCharset = "iso-8859-1";
+            contentTypeCharset
+                = HeaderUtilities.getResponseContentTypeCharset(connection);
+            if (contentTypeCharset == null) {
+                contentTypeCharset = "iso-8859-1";
+            }
         }
-        System.out.println(
-            "response.contentTypeCharset: " + contentTypeCharset);
 
         final InputStream input = connection.getInputStream();
         try {
@@ -92,13 +92,13 @@ public class TextPlainBody extends BidirectionalBody<String> {
             throw new NullPointerException("null connection");
         }
 
-        String contentTypeCharset
-            = HeaderUtilities.getRequestContentTypeCharset(connection);
         if (contentTypeCharset == null) {
-            contentTypeCharset = "iso-8859-1";
+            contentTypeCharset
+                = HeaderUtilities.getRequestContentTypeCharset(connection);
+            if (contentTypeCharset == null) {
+                contentTypeCharset = "iso-8859-1";
+            }
         }
-        System.out.println("request.contentTypeCharset: "
-                           + contentTypeCharset);
 
         final OutputStream output = connection.getOutputStream();
         try {
@@ -108,6 +108,36 @@ public class TextPlainBody extends BidirectionalBody<String> {
             output.close();
         }
     }
+
+
+    public String getContentTypeCharset() {
+
+        return contentTypeCharset;
+    }
+
+
+    public void setContentTypeCharset(final String contentTypeCharset) {
+
+        this.contentTypeCharset = contentTypeCharset;
+    }
+
+
+    /**
+     * Replaces {@code contentTypeCharset} with given and returns self.
+     *
+     * @param contentTypeCharset contentTypeCharset
+     *
+     * @return self.
+     */
+    public TextPlainBody contentTypeCharset(final String contentTypeCharset) {
+
+        setContentTypeCharset(contentTypeCharset);
+
+        return this;
+    }
+
+
+    private String contentTypeCharset;
 
 
 }

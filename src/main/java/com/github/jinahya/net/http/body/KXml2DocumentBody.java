@@ -56,10 +56,12 @@ public class KXml2DocumentBody extends BidirectionalBody<Document> {
     @Override
     public void read(final HttpURLConnection connection) throws IOException {
 
-        final Document value = new Document();
+        if (contentTypeCharset == null) {
+            contentTypeCharset
+                = HeaderUtilities.getResponseContentTypeCharset(connection);
+        }
 
-        String contentTypeCharset
-            = HeaderUtilities.getResponseContentTypeCharset(connection);
+        final Document value = new Document();
 
         final InputStream input = connection.getInputStream();
         try {
@@ -83,8 +85,10 @@ public class KXml2DocumentBody extends BidirectionalBody<Document> {
     @Override
     public void write(final HttpURLConnection connection) throws IOException {
 
-        String contentTypeCharset
-            = HeaderUtilities.getRequestContentTypeCharset(connection);
+        if (contentTypeCharset == null) {
+            contentTypeCharset
+                = HeaderUtilities.getRequestContentTypeCharset(connection);
+        }
 
         final OutputStream output = connection.getOutputStream();
         try {
@@ -100,6 +104,44 @@ public class KXml2DocumentBody extends BidirectionalBody<Document> {
             output.close();
         }
     }
+
+
+    @Override
+    public KXml2DocumentBody value(final Document value) {
+
+        return (KXml2DocumentBody) super.value(value);
+    }
+
+
+    public String getContentTypeCharset() {
+
+        return contentTypeCharset;
+    }
+
+
+    public void setContentTypeCharset(final String contentTypeCharset) {
+
+        this.contentTypeCharset = contentTypeCharset;
+    }
+
+
+    /**
+     * Replaces {@code contentTypeCharset} with given and returns self.
+     *
+     * @param contentTypeCharset contentTypeCharset
+     *
+     * @return self.
+     */
+    public KXml2DocumentBody contentTypeCharset(
+        final String contentTypeCharset) {
+
+        setContentTypeCharset(contentTypeCharset);
+
+        return this;
+    }
+
+
+    private String contentTypeCharset;
 
 
 }

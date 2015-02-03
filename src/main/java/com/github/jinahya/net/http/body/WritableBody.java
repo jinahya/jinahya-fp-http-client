@@ -30,6 +30,13 @@ import java.net.HttpURLConnection;
 public interface WritableBody<T> extends Body<T> {
 
 
+    /**
+     * Writes the body part to specified {@code connection}.
+     *
+     * @param connection the connection
+     *
+     * @throws IOException if an I/O error occurs.
+     */
     void write(HttpURLConnection connection) throws IOException;
 
 

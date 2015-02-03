@@ -86,5 +86,12 @@ public class BytesBody extends BidirectionalBody<byte[]> {
     }
 
 
+    @Override
+    public BytesBody value(final byte[] value) {
+
+        return (BytesBody) super.value(value);
+    }
+
+
 }
 

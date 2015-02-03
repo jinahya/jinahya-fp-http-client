@@ -30,6 +30,13 @@ import java.net.HttpURLConnection;
 public interface ReadableBody<T> extends Body<T> {
 
 
+    /**
+     * Reads body part from specified {@code onnection}.
+     *
+     * @param connection the connection
+     *
+     * @throws IOException if an I/O error occurs.
+     */
     void read(HttpURLConnection connection) throws IOException;
 
 
