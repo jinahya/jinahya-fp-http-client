@@ -19,6 +19,7 @@ package com.github.jinahya.net.http;
 
 
 import com.github.jinahya.net.http.body.WritableBody;
+import com.github.jinahya.util.Objects;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URLConnection;
@@ -35,11 +36,7 @@ public class HttpRequest {
 
         super();
 
-        if (connection == null) {
-            throw new NullPointerException("null connection");
-        }
-
-        this.connection = connection;
+        this.connection = Objects.requireNonNull(connection, "null connection");
     }
 
 
@@ -185,25 +182,6 @@ public class HttpRequest {
         }
 
         return new HttpResponse(connection);
-    }
-
-
-    /**
-     * Sends the request.
-     *
-     * @param <T> body type parameter
-     * @param body the body; {@code null} for empty request body.
-     *
-     * @return an HTTPResponse instance.
-     *
-     * @throws IOException if an I/O error occurs.
-     * @deprecated
-     */
-    @Deprecated
-    public <T extends WritableBody<?>> HttpResponse send(final T body)
-        throws IOException {
-
-        return body(body).send();
     }
 
 

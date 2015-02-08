@@ -128,5 +128,13 @@ public class RestClient extends HttpClient {
     }
 
 
+    public <T, U extends ApplicationXmlBody<T> & ReadableBody<T>> HttpResponse readXml(
+        final U body)
+        throws IOException {
+
+        return readXml(null, body);
+    }
+
+
 }
 

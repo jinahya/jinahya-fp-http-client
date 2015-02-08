@@ -19,7 +19,6 @@ package com.github.jinahya.net.http;
 
 
 import com.github.jinahya.net.http.body.ReadableBody;
-import static com.github.jinahya.util.Optional.ofNullable;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
@@ -115,27 +114,6 @@ public class HttpResponse {
         }
 
         return this;
-    }
-
-
-    /**
-     * Receives an body.
-     *
-     * @param <T> body type parameter
-     * @param body the body; {@code null} for empty body
-     *
-     * @return the specified body.
-     *
-     * @throws IOException if an I/O error occurs.
-     * @deprecated
-     */
-    @Deprecated
-    public <T extends ReadableBody<?>> T receive(final T body)
-        throws IOException {
-
-        body(body).receive();
-
-        return body;
     }
 
 

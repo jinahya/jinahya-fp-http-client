@@ -22,16 +22,17 @@ package com.github.jinahya.net.http;
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
  */
-public enum ContentType {
+public enum MediaType {
 
 
     APPLICATION_JSON("application/json"),
     APPLICATION_XML("application/xml"),
+    IMAGE_JPEG("image/jpeg"),
     IMAGE_PNG("image/png"),
     TEXT_PLAIN("text/plain");
 
 
-    private ContentType(final String fieldValue) {
+    private MediaType(final String fieldValue) {
 
         this.fieldValue = fieldValue;
     }

@@ -78,10 +78,12 @@ public class JsonObjectBodyTest extends MockServerTest {
 
         final HttpResponse response = new HttpClient(new URL(baseUri + path))
             .open("GET")
-            .send(null);
+            .body(null)
+            .send();
 
         final JSONObject actual
-            = response.receive(new JsonObjectBody(null)).getValue();
+            = (JSONObject) response.body(new JsonObjectBody(null)).receive()
+            .getBody().getValue();
         logger.debug("actual: {}", actual);
 
         assertEquals(actual.toString(), expected);
@@ -122,7 +124,8 @@ public class JsonObjectBodyTest extends MockServerTest {
         final HttpResponse response = new HttpClient(url)
             .open("PUT")
             .contentType(contentType)
-            .send(new JsonObjectBody(expected));
+            .body(new JsonObjectBody(expected))
+            .send();
 
         assertEquals(response.statusCode(), 204);
 

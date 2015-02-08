@@ -45,11 +45,12 @@ public class HttpClientTest extends MockServerTest {
                 .build()
                 .toURL())
             .open("GET")
-            .send(null);
+            .body(null)
+            .send();
         logger.debug("code: {}", response.statusCode());
         logger.debug("message: {}", response.reasonPhrase());
-        final byte[] body = response.receive(
-            new ApplicationOctetStreamBody()).getValue();
+        final byte[] body = (byte[]) response.body(
+            new ApplicationOctetStreamBody()).receive().getBody().getValue();
         if (body != null) {
             logger.debug("body.length: {}", body.length);
         }

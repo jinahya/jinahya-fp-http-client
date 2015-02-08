@@ -76,10 +76,12 @@ public class TextPlainBodyTest extends MockServerTest {
 
         final HttpResponse response = new HttpClient(new URL(baseUri + path))
             .open("GET")
-            .send(null);
+            .body(null)
+            .send();
 
         final String actual
-            = response.receive(new TextPlainBody(null)).getValue();
+            = (String) response.body(new TextPlainBody(null)).receive()
+            .getBody().getValue();
         logger.debug("actual: {}", actual);
 
         assertEquals(actual, expected);
@@ -116,7 +118,8 @@ public class TextPlainBodyTest extends MockServerTest {
         final HttpResponse response = new HttpClient(url)
             .open("PUT")
             .contentType(contentType)
-            .send(new TextPlainBody(expected));
+            .body(new TextPlainBody(expected))
+            .send();
 
         assertEquals(response.statusCode(), 204);
 
