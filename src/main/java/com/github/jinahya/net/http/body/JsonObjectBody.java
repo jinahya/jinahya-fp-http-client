@@ -36,7 +36,8 @@ import org.json.JSONTokener;
  * @see <a href="http://tools.ietf.org/html/rfc7159">Request for Comment: 7159 -
  * The JavaScript Object Notation (JSON) Data Interchange Format</a>
  */
-public class JsonObjectBody extends BidirectionalBody<JSONObject> {
+public class JsonObjectBody extends BidirectionalBody<JSONObject>
+    implements ApplicationJsonBody<JSONObject> {
 
 
     public JsonObjectBody(final JSONObject value) {
@@ -47,21 +48,13 @@ public class JsonObjectBody extends BidirectionalBody<JSONObject> {
     }
 
 
-    public JsonObjectBody() {
-
-        this(null);
-    }
-
-
     @Override
     public void read(final HttpURLConnection connection) throws IOException {
 
         if (contentTypeCharset == null) {
             contentTypeCharset
-                = HeaderUtilities.getResponseContentTypeCharset(connection);
-            if (contentTypeCharset == null) {
-                contentTypeCharset = "utf-8"; // rfc7159
-            }
+                = HeaderUtilities.getResponseContentTypeCharset(connection)
+                .orElse("utf-8"); // rfc7159
         }
 
         final InputStream input = connection.getInputStream();
@@ -79,10 +72,8 @@ public class JsonObjectBody extends BidirectionalBody<JSONObject> {
 
         if (contentTypeCharset == null) {
             contentTypeCharset
-                = HeaderUtilities.getRequestContentTypeCharset(connection);
-            if (contentTypeCharset == null) {
-                contentTypeCharset = "utf-8"; // rf7159
-            }
+                = HeaderUtilities.getRequestContentTypeCharset(connection)
+                .orElse("utf-8"); // rfc7159
         }
 
         final OutputStream output = connection.getOutputStream();

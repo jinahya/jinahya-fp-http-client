@@ -18,17 +18,34 @@
 package com.github.jinahya.net.http.body;
 
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+
+
 /**
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
  */
-public class ApplicationOctetStreamBody extends BytesBody {
+public class EmptyBody extends BidirectionalBody<Object> {
+
+
+    public EmptyBody() {
+
+        super();
+    }
 
 
     @Override
-    public ApplicationOctetStreamBody value(final byte[] bytes) {
+    public void read(final HttpURLConnection connection) throws IOException {
 
-        return (ApplicationOctetStreamBody) super.value(bytes);
+        // empty
+    }
+
+
+    @Override
+    public void write(final HttpURLConnection connection) throws IOException {
+
+        // empty
     }
 
 

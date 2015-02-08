@@ -15,21 +15,17 @@
  */
 
 
-package com.github.jinahya.net.http.body;
+package com.github.jinahya.net.http;
 
 
 /**
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
  */
-public class ApplicationOctetStreamBody extends BytesBody {
+public enum HttpMethod {
 
 
-    @Override
-    public ApplicationOctetStreamBody value(final byte[] bytes) {
-
-        return (ApplicationOctetStreamBody) super.value(bytes);
-    }
+    GET, POST, PUT, DELETE, HEAD
 
 
 }

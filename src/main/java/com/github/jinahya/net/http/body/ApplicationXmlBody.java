@@ -21,15 +21,18 @@ package com.github.jinahya.net.http.body;
 /**
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
+ * @param <T>
+ *
+ * @see <a href="http://tools.ietf.org/html/rfc7159">Request for Comment: 7159 -
+ * The JavaScript Object Notation (JSON) Data Interchange Format</a>
  */
-public class ApplicationOctetStreamBody extends BytesBody {
+public interface ApplicationXmlBody<T> {
 
 
-    @Override
-    public ApplicationOctetStreamBody value(final byte[] bytes) {
-
-        return (ApplicationOctetStreamBody) super.value(bytes);
-    }
+    /**
+     * The default value for {@code Content-Type}.
+     */
+    public static final String DEFAULT_CONENT_TYPE = "application/xml";
 
 
 }

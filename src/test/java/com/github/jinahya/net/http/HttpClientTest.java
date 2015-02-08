@@ -19,22 +19,12 @@ package com.github.jinahya.net.http;
 
 
 import com.github.jinahya.net.http.body.ApplicationOctetStreamBody;
-import com.github.jinahya.net.http.body.TextPlainBody;
 import java.io.IOException;
 import static java.lang.invoke.MethodHandles.lookup;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import static java.util.concurrent.ThreadLocalRandom.current;
-import org.bigtesting.fixd.Method;
-import org.bigtesting.fixd.ServerFixture;
-import org.bigtesting.fixd.request.HttpRequest;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
@@ -42,99 +32,11 @@ import org.testng.annotations.Test;
  *
  * @author Jin Kwon &lt;jinahya_at_gmail.com&gt;
  */
-public class HttpClientTest {
-
-
-    private static final int PORT;
-
-
-    private static final String BASE;
-
-
-    static {
-        PORT = current().nextInt(1014, 65536);
-        BASE = "http://localhost:" + PORT;
-    }
-
-
-    @BeforeTest
-    public void before() throws IOException {
-
-        server = new ServerFixture(PORT);
-        server.start();
-    }
-
-
-    @AfterTest
-    public void after() throws IOException {
-
-        server.stop();
-    }
+public class HttpClientTest extends MockServerTest {
 
 
     @Test
-    public void get() throws IOException {
-
-        final String path = "/get";
-
-        server.handle(Method.GET, path).with(200, "text/plain", "get");
-
-        final HttpResponse response = new HttpClient(new URL(BASE + path))
-            .open("GET")
-            .send(null);
-
-        final byte[] responseBodyValue
-            = response.receive(new ApplicationOctetStreamBody()).getValue();
-    }
-
-
-    @Test
-    public void getTextPlain() throws IOException {
-
-        final String path = "/get";
-        final Charset charset = StandardCharsets.UTF_8;
-
-        server.handle(Method.GET, path).with((
-            HttpRequest request,
-            org.bigtesting.fixd.response.HttpResponse response) -> {
-                response.setStatusCode(200);
-                response.setContentType(
-                    "text/plain;charset=" + charset.name().toLowerCase());
-                response.setBody("가나다라".getBytes(charset));
-            });
-
-        final HttpResponse response = new HttpClient(new URL(BASE + path))
-            .open("GET")
-            .send(null);
-        final String contentType
-            = response.getConnection().getHeaderField("content-type");
-        logger.debug("contentType: {}", contentType);
-
-        final String body = response.receive(new TextPlainBody()).getValue();
-        logger.debug("body: {} <<<<<<<<", body);
-    }
-
-
-    @Test
-    public void put() throws IOException {
-
-        final String path = "/put";
-
-        server
-            .handle(Method.PUT, path)
-            .with(200, "[request#Content-Type]", "[request.body]");
-
-        final HttpResponse response = new HttpClient(new URL(BASE + path))
-            .open("PUT")
-            .send(new ApplicationOctetStreamBody("hello".getBytes()));
-
-        final byte[] responseBodyValue
-            = response.receive(new ApplicationOctetStreamBody()).getValue();
-    }
-
-
-    @Test
-    public void daum_get_index_html()
+    public void get_daum_net_index_html()
         throws URISyntaxException, MalformedURLException, IOException {
 
         final HttpResponse response
@@ -144,8 +46,8 @@ public class HttpClientTest {
                 .toURL())
             .open("GET")
             .send(null);
-        logger.debug("code: {}", response.code());
-        logger.debug("message: {}", response.message());
+        logger.debug("code: {}", response.statusCode());
+        logger.debug("message: {}", response.reasonPhrase());
         final byte[] body = response.receive(
             new ApplicationOctetStreamBody()).getValue();
         if (body != null) {
@@ -155,9 +57,6 @@ public class HttpClientTest {
 
 
     private transient final Logger logger = getLogger(lookup().lookupClass());
-
-
-    private ServerFixture server;
 
 
 }

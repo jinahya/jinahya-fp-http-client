@@ -81,7 +81,7 @@ public class JsonObjectBodyTest extends MockServerTest {
             .send(null);
 
         final JSONObject actual
-            = response.receive(new JsonObjectBody()).getValue();
+            = response.receive(new JsonObjectBody(null)).getValue();
         logger.debug("actual: {}", actual);
 
         assertEquals(actual.toString(), expected);
@@ -124,7 +124,7 @@ public class JsonObjectBodyTest extends MockServerTest {
             .contentType(contentType)
             .send(new JsonObjectBody(expected));
 
-        assertEquals(response.code(), 204);
+        assertEquals(response.statusCode(), 204);
 
         final List<LoggedRequest> loggedRequests
             = mockServer.findAll(putRequestedFor(urlMatching(path)));

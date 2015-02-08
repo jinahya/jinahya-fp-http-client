@@ -78,11 +78,11 @@ public class TextPlainBodyTest extends MockServerTest {
             .open("GET")
             .send(null);
 
-        final String actual = response.receive(new TextPlainBody()).getValue();
+        final String actual
+            = response.receive(new TextPlainBody(null)).getValue();
         logger.debug("actual: {}", actual);
 
         assertEquals(actual, expected);
-
 
     }
 
@@ -118,7 +118,7 @@ public class TextPlainBodyTest extends MockServerTest {
             .contentType(contentType)
             .send(new TextPlainBody(expected));
 
-        assertEquals(response.code(), 204);
+        assertEquals(response.statusCode(), 204);
 
         final List<LoggedRequest> loggedRequests
             = mockServer.findAll(putRequestedFor(urlMatching(path)));

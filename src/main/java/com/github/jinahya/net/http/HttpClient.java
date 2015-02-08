@@ -18,7 +18,10 @@
 package com.github.jinahya.net.http;
 
 
+import com.github.jinahya.util.Objects;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -34,22 +37,89 @@ public class HttpClient {
 
         super();
 
-        this.url = url;
+        this.url = Objects.requireNonNull(url, "null url");
     }
 
 
+    public HttpClient connectTimeout(final int timeout) {
+
+        this.connectTimeout = timeout;
+
+        return this;
+    }
+
+
+    public HttpClient readTimeout(final int timeout) {
+
+        this.readTimeout = timeout;
+
+        return this;
+    }
+
+
+    /**
+     * Opens the connection for specified HTTP request method.
+     *
+     * @param method the HTTP request method
+     *
+     * @return an HttpRequest
+     *
+     * @throws IOException if an IO error occurs.
+     */
     public HttpRequest open(final String method) throws IOException {
+
+        if (method == null) {
+            throw new NullPointerException("null method");
+        }
 
         final HttpURLConnection connection
             = (HttpURLConnection) url.openConnection();
 
         connection.setRequestMethod(method);
 
+        if (connectTimeout != null) {
+            try {
+                HttpURLConnection.class.getMethod(
+                    "setConnectTimeout", new Class<?>[]{int.class})
+                    .invoke(connection, new Object[]{connectTimeout});
+            } catch (final NoSuchMethodException nsme) {
+            } catch (final IllegalAccessException iae) {
+            } catch (final InvocationTargetException ite) {
+            }
+        }
+
+        if (readTimeout != null) {
+            try {
+                HttpURLConnection.class.getMethod(
+                    "setReadTimeout", new Class<?>[]{int.class})
+                    .invoke(connection, new Object[]{readTimeout});
+            } catch (final NoSuchMethodException nsme) {
+            } catch (final IllegalAccessException iae) {
+            } catch (final InvocationTargetException ite) {
+            }
+        }
+
         return new HttpRequest(connection);
     }
 
 
+    public HttpRequest open(final HttpMethod method) throws IOException {
+
+        if (method == null) {
+            throw new NullPointerException("null method");
+        }
+
+        return open(method.name());
+    }
+
+
     private final URL url;
+
+
+    private transient Integer connectTimeout;
+
+
+    private transient Integer readTimeout;
 
 
 }

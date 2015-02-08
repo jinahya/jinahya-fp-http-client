@@ -18,6 +18,7 @@
 package com.github.jinahya.net.http;
 
 
+import com.github.jinahya.util.Optional;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,7 +123,7 @@ public final class HeaderUtilities {
     }
 
 
-    public static String getRequestContentTypeCharset(
+    public static Optional<String> getRequestContentTypeCharset(
         final HttpURLConnection connection) {
 
         if (connection == null) {
@@ -130,9 +131,10 @@ public final class HeaderUtilities {
         }
 
         try {
-            return getRequestContentTypeCharsets(connection).get(0);
+            return Optional.of(
+                getRequestContentTypeCharsets(connection).get(0));
         } catch (final IndexOutOfBoundsException ioobe) {
-            return null;
+            return Optional.empty();
         }
     }
 
@@ -149,7 +151,7 @@ public final class HeaderUtilities {
     }
 
 
-    public static String getResponseContentTypeCharset(
+    public static Optional<String> getResponseContentTypeCharset(
         final HttpURLConnection connection) {
 
         if (connection == null) {
@@ -157,9 +159,10 @@ public final class HeaderUtilities {
         }
 
         try {
-            return getResponseContentTypeCharsets(connection).get(0);
+            return Optional.of(
+                getResponseContentTypeCharsets(connection).get(0));
         } catch (final IndexOutOfBoundsException ioobe) {
-            return null;
+            return Optional.empty();
         }
     }
 

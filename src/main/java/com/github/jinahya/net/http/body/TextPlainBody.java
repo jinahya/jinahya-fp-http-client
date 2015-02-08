@@ -19,6 +19,7 @@ package com.github.jinahya.net.http.body;
 
 
 import com.github.jinahya.net.http.HeaderUtilities;
+import static com.github.jinahya.util.Optional.ofNullable;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,12 +42,6 @@ public class TextPlainBody extends BidirectionalBody<String> {
     }
 
 
-    public TextPlainBody() {
-
-        this(null);
-    }
-
-
     @Override
     public void read(final HttpURLConnection connection) throws IOException {
 
@@ -54,13 +49,9 @@ public class TextPlainBody extends BidirectionalBody<String> {
             throw new NullPointerException("null connection");
         }
 
-        if (contentTypeCharset == null) {
-            contentTypeCharset
-                = HeaderUtilities.getResponseContentTypeCharset(connection);
-            if (contentTypeCharset == null) {
-                contentTypeCharset = "iso-8859-1";
-            }
-        }
+        contentTypeCharset = ofNullable(contentTypeCharset)
+            .orElse(HeaderUtilities.getResponseContentTypeCharset(connection)
+                .orElse("iso-8859-1"));
 
         final InputStream input = connection.getInputStream();
         try {
@@ -92,13 +83,9 @@ public class TextPlainBody extends BidirectionalBody<String> {
             throw new NullPointerException("null connection");
         }
 
-        if (contentTypeCharset == null) {
-            contentTypeCharset
-                = HeaderUtilities.getRequestContentTypeCharset(connection);
-            if (contentTypeCharset == null) {
-                contentTypeCharset = "iso-8859-1";
-            }
-        }
+        contentTypeCharset = ofNullable(contentTypeCharset)
+            .orElse(HeaderUtilities.getRequestContentTypeCharset(connection)
+                .orElse("iso-8859-1"));
 
         final OutputStream output = connection.getOutputStream();
         try {
@@ -107,6 +94,13 @@ public class TextPlainBody extends BidirectionalBody<String> {
         } finally {
             output.close();
         }
+    }
+
+
+    @Override
+    public TextPlainBody value(final String value) {
+
+        return (TextPlainBody) super.value(value);
     }
 
 

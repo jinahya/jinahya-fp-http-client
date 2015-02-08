@@ -33,20 +33,6 @@ import java.net.HttpURLConnection;
 public class BytesBody extends BidirectionalBody<byte[]> {
 
 
-    public BytesBody(final byte[] value) {
-
-        super();
-
-        setValue(value);
-    }
-
-
-    public BytesBody() {
-
-        this(null);
-    }
-
-
     @Override
     public void read(final HttpURLConnection connection) throws IOException {
 

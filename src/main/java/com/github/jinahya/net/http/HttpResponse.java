@@ -19,6 +19,7 @@ package com.github.jinahya.net.http;
 
 
 import com.github.jinahya.net.http.body.ReadableBody;
+import static com.github.jinahya.util.Optional.ofNullable;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
@@ -42,6 +43,11 @@ public class HttpResponse {
     }
 
 
+    /**
+     * Returns the connection.
+     *
+     * @return the connection
+     */
     public HttpURLConnection getConnection() {
 
         return connection;
@@ -49,45 +55,94 @@ public class HttpResponse {
 
 
     /**
+     * Returns the HTTP status code returned from the server.
      *
-     * @return @throws IOException
+     * @return the HTTP status code
+     *
+     * @throws IOException if an I/O error occurs.
      *
      * @see HttpURLConnection#getResponseCode()
      */
-    public int code() throws IOException {
+    public int statusCode() throws IOException {
 
         return connection.getResponseCode();
     }
 
 
     /**
+     * Returns the HTTP reason phrase returned from the server.
      *
-     * @return @throws IOException
+     * @return the HTTP reason phrase
+     *
+     * @throws IOException if an I/O error occurs.
      *
      * @see HttpURLConnection#getResponseMessage()
      */
-    public String message() throws IOException {
+    public String reasonPhrase() throws IOException {
 
         return connection.getResponseMessage();
     }
 
 
-    public <T extends ReadableBody<?>> T receive(final T body)
-        throws IOException {
+    public ReadableBody<?> getBody() {
+
+        return body;
+    }
+
+
+    public void setBody(final ReadableBody<?> body) {
+
+        this.body = body;
+    }
+
+
+    public HttpResponse body(final ReadableBody<?> body) {
+
+        setBody(body);
+
+        return this;
+    }
+
+
+    public HttpResponse receive() throws IOException {
 
         try {
-            if (code() == HttpURLConnection.HTTP_OK) {
+            if (body != null && statusCode() == HttpURLConnection.HTTP_OK) {
                 body.read(connection);
             }
         } finally {
             connection.disconnect();
         }
 
+        return this;
+    }
+
+
+    /**
+     * Receives an body.
+     *
+     * @param <T> body type parameter
+     * @param body the body; {@code null} for empty body
+     *
+     * @return the specified body.
+     *
+     * @throws IOException if an I/O error occurs.
+     * @deprecated
+     */
+    @Deprecated
+    public <T extends ReadableBody<?>> T receive(final T body)
+        throws IOException {
+
+        body(body).receive();
+
         return body;
     }
 
 
     private final HttpURLConnection connection;
+
+
+    private transient ReadableBody<?> body;
 
 
 }

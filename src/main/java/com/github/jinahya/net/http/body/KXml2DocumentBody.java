@@ -19,6 +19,8 @@ package com.github.jinahya.net.http.body;
 
 
 import com.github.jinahya.net.http.HeaderUtilities;
+import com.github.jinahya.util.Objects;
+import static com.github.jinahya.util.Optional.ofNullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -36,7 +38,8 @@ import org.xmlpull.v1.XmlSerializer;
  * @see <a href="http://tools.ietf.org/html/rfc7159">Request for Comment: 7159 -
  * The JavaScript Object Notation (JSON) Data Interchange Format</a>
  */
-public class KXml2DocumentBody extends BidirectionalBody<Document> {
+public class KXml2DocumentBody extends BidirectionalBody<Document>
+    implements ApplicationXmlBody<Document> {
 
 
     public KXml2DocumentBody(final Document value) {
@@ -47,19 +50,14 @@ public class KXml2DocumentBody extends BidirectionalBody<Document> {
     }
 
 
-    public KXml2DocumentBody() {
-
-        this(null);
-    }
-
-
     @Override
     public void read(final HttpURLConnection connection) throws IOException {
 
-        if (contentTypeCharset == null) {
-            contentTypeCharset
-                = HeaderUtilities.getResponseContentTypeCharset(connection);
-        }
+        Objects.requireNonNull(connection, "null connection");
+
+        contentTypeCharset = ofNullable(contentTypeCharset).orElse(
+            HeaderUtilities.getRequestContentTypeCharset(connection)
+            .orElse(null));
 
         final Document value = new Document();
 
@@ -85,10 +83,11 @@ public class KXml2DocumentBody extends BidirectionalBody<Document> {
     @Override
     public void write(final HttpURLConnection connection) throws IOException {
 
-        if (contentTypeCharset == null) {
-            contentTypeCharset
-                = HeaderUtilities.getRequestContentTypeCharset(connection);
-        }
+        Objects.requireNonNull(connection, "null connection");
+
+        contentTypeCharset = ofNullable(contentTypeCharset).orElse(
+            HeaderUtilities.getRequestContentTypeCharset(connection)
+            .orElse(null));
 
         final OutputStream output = connection.getOutputStream();
         try {
