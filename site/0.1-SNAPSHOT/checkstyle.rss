@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2014 - 2015</copyright>
     <item>
-      <title>File: 19,
-             Errors: 161,
+      <title>File: 24,
+             Errors: 210,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,6 +46,34 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.EmptyBody.java">com/github/jinahya/net/http/body/EmptyBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.ApplicationJsonBody.java">com/github/jinahya/net/http/body/ApplicationJsonBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.UriBuilder.java">com/github/jinahya/net/http/UriBuilder.java</a>
                 </td>
                 <td>
@@ -60,6 +88,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.HttpMethod.java">com/github/jinahya/net/http/HttpMethod.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.JsonObjectBody.java">com/github/jinahya/net/http/body/JsonObjectBody.java</a>
                 </td>
                 <td>
@@ -69,7 +111,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  13
+                  12
                 </td>
               </tr>
                           <tr>
@@ -83,7 +125,49 @@ under the License.
                   0
                 </td>
                 <td>
-                  13
+                  12
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.RestClient.java">com/github/jinahya/net/http/RestClient.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  20
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.MediaType.java">com/github/jinahya/net/http/MediaType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.body.ApplicationXmlBody.java">com/github/jinahya/net/http/body/ApplicationXmlBody.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
                 </td>
               </tr>
                           <tr>
@@ -111,7 +195,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  8
+                  6
                 </td>
               </tr>
                           <tr>
@@ -125,7 +209,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  3
+                  1
                 </td>
               </tr>
                           <tr>
@@ -139,7 +223,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  13
+                  12
                 </td>
               </tr>
                           <tr>
@@ -153,7 +237,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  11
+                  17
                 </td>
               </tr>
                           <tr>
@@ -195,7 +279,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  19
+                  23
                 </td>
               </tr>
                           <tr>
@@ -270,20 +354,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.ContentType.java">com/github/jinahya/net/http/ContentType.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  8
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://jinahya.github.io/jinahya-fp-http-client/site/0.1-SNAPSHOT/checkstyle.html#com.github.jinahya.net.http.HttpClient.java">com/github/jinahya/net/http/HttpClient.java</a>
                 </td>
                 <td>
@@ -293,7 +363,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  5
+                  19
                 </td>
               </tr>
                           <tr>
